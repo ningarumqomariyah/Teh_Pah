@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEH PAH — minuman bunga telang & rosella</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #fbf6ec, #f3ecdf);
+      color: #2d2a1e;
+      line-height: 1.5;
+      padding: 2.5rem 1rem 3rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #3b2e5a;
+      text-shadow: 3px 3px 0 #f9e56b, 6px 6px 0 rgba(179, 143, 209, 0.25);
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-top: 4px double #c7a8e0;
+      border-bottom: 4px double #c7a8e0;
+    }
+
+    .header p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #6b5b4b;
+      background: #f3eee7;
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 40px;
+      font-weight: 400;
+      letter-spacing: 0.6px;
+      border: 1px solid #ded0c0;
+    }
+
+    .header p i {
+      color: #4a7a3a;
+      margin: 0 4px;
+    }
+
+    /* ===== GRID MENU ===== */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: linear-gradient(180deg, #ffffff 0%, #fdfaf5 100%);
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 22px 40px -12px rgba(60, 40, 90, 0.25), 0 8px 18px -6px rgba(0, 0, 0, 0.08);
+      padding: 1.6rem 1.3rem 1.8rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(200, 180, 220, 0.4);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 34px 55px -16px rgba(60, 40, 90, 0.35);
+    }
+
+    /* Badge Best Seller */
+    .best-seller-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ffe082, #ffc107);
+      color: #4a2c0a;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      padding: 0.35rem 1.2rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 12px rgba(255, 180, 0, 0.5);
+      z-index: 3;
+      white-space: nowrap;
+    }
+
+    .best-seller-badge i {
+      font-size: 0.75rem;
+      margin-right: 4px;
+      color: #b8860b;
+    }
+
+    /* ===== AREA GELAS ===== */
+    .glass-scene {
+      height: 220px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 1.2rem;
+      padding-bottom: 6px;
+    }
+
+    /* Gelas kaca bening */
+    .glass {
+      position: relative;
+      width: 130px;
+      height: 190px;
+      background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(240, 245, 255, 0.22) 28%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.3) 72%,
+        rgba(255, 255, 255, 0.6) 100%
+      );
+      border-radius: 8px 8px 30px 30px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-top: none;
+      box-shadow: 
+        inset 0 0 18px rgba(255, 255, 255, 0.7),
+        0 14px 22px -8px rgba(0, 0, 0, 0.25),
+        0 3px 0 rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(1px);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* Bibir gelas atas */
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      height: 16px;
+      border-radius: 50% / 40% 40% 60% 60%;
+      background: radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.95), rgba(220, 230, 245, 0.7));
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 -2px 6px rgba(255, 255, 255, 0.9);
+      z-index: 5;
+    }
+
+    /* Air di dalam gelas */
+    .liquid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 0 0 28px 28px;
+      overflow: hidden;
+      z-index: 1;
+      transition: height 0.3s;
+    }
+
+    /* Permukaan air (gelombang) */
+    .liquid::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -10%;
+      width: 120%;
+      height: 14px;
+      border-radius: 50%;
+      background: inherit;
+      opacity: 0.85;
+      filter: blur(1px);
+    }
+
+    /* ===== VARIAN WARNA & HIASAN ===== */
+
+    /* 1. Telang Original — biru ungu telang + hint lemon */
+    .telang-original .liquid {
+      height: 80%;
+      background: linear-gradient(180deg, #8a6ab5 0%, #6b4a9e 40%, #4e3278 100%);
+    }
+    .telang-original .liquid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255, 245, 150, 0.35), transparent);
+      pointer-events: none;
+    }
+
+    /* 2. Telang Sparkling — ungu + hint sirup merah coco pandan */
+    .telang-sparkling .liquid {
+      height: 82%;
+      background: linear-gradient(180deg, #7a4fbb 0%, #5f3a9e 45%, #3d2366 100%);
+    }
+    .telang-sparkling .liquid::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      width: 60%;
+      height: 45%;
+      background: radial-gradient(circle at 70% 30%, rgba(220, 40, 60, 0.45), rgba(180, 20, 40, 0.1) 70%);
+      border-radius: 50%;
+      filter: blur(6px);
+    }
+
+    /* 3. Rosella Original — merah + hint lemon */
+    .rosella-original .liquid {
+      height: 78%;
+      background: linear-gradient(180deg, #d65f5f 0%, #b33a3a 45%, #7a2222 100%);
+    }
+    .rosella-original .liquid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 42%;
+      background: linear-gradient(180deg, rgba(255, 240, 140, 0.4), transparent);
+      pointer-events: none;
+    }
+
+    /* 4. Rosella Sparkling — merah + soda */
+    .rosella-sparkling .liquid {
+      height: 80%;
+      background: linear-gradient(180deg, #c44a4a 0%, #9e2f2f 50%, #641f1f 100%);
+    }
+    .rosella-sparkling .liquid::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      width: 55%;
+      height: 40%;
+      background: radial-gradient(circle at 30% 40%, rgba(220, 50, 60, 0.45), rgba(160, 20, 40, 0.05) 75%);
+      border-radius: 50%;
+      filter: blur(6px);
+    }
+
+    /* ===== HIASAN DI DALAM / LUAR GELAS ===== */
+
+    /* Daun sereh */
+    .sereh {
+      position: absolute;
+      z-index: 6;
+      font-size: 2.5rem;
+      color: #7cb56b;
+      text-shadow: 0 3px 5px rgba(20, 50, 10, 0.5);
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+      pointer-events: none;
+    }
+
+    .sereh-1 {
+      bottom: 60px;
+      left: -18px;
+      transform: rotate(-35deg);
+      font-size: 2.8rem;
+    }
+
+    .sereh-2 {
+      bottom: 75px;
+      right: -14px;
+      transform: rotate(25deg) scaleX(-1);
+      font-size: 2.4rem;
+    }
+
+    .sereh-3 {
+      bottom: 90px;
+      left: 0px;
+      transform: rotate(-60deg);
+      font-size: 2.2rem;
+    }
+
+    /* Potongan lemon (segitiga / bulat) */
+    .lemon-slice {
+      position: absolute;
+      z-index: 6;
+      font-size: 2.4rem;
+      color: #ffe066;
+      text-shadow: 0 0 10px #ffcc00, 0 3px 6px rgba(120, 80, 0, 0.5);
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+    }
+
+    .lemon-1 {
+      bottom: 30px;
+      right: 5px;
+      transform: rotate(15deg);
+      font-size: 2.6rem;
+    }
+
+    .lemon-2 {
+      bottom: 55px;
+      left: 0px;
+      transform: rotate(-25deg);
+      font-size: 2rem;
+    }
+
+    .lemon-3 {
+      bottom: 25px;
+      right: 2px;
+      transform: rotate(45deg);
+      font-size: 2.2rem;
+    }
+
+    /* Hint lemon di dalam gelas (lingkaran kuning) */
+    .lemon-hint {
+      position: absolute;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      background: radial-gradient(circle, #fff2a8 0%, #f7d44a 80%, #e6b800 100%);
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 200, 0.9);
+      box-shadow: 0 0 12px #ffe066, inset 0 0 8px #fff8d0;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .lemon-hint-1 {
+      bottom: 45px;
+      left: 20px;
+    }
+
+    .lemon-hint-2 {
+      bottom: 35px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+    }
+
+    /* Hint sirup merah (coco pandan) di dalam gelas */
+    .sirup-hint {
+      position: absolute;
+      z-index: 3;
+      width: 44px;
+      height: 44px;
+      background: radial-gradient(circle at 30% 30%, #ff8a8a, #c41e1e 85%);
+      border-radius: 50% 50% 40% 60% / 60% 50% 50% 40%;
+      box-shadow: 0 0 14px #e63946, inset 0 0 8px #ffb3b3;
+      opacity: 0.85;
+      pointer-events: none;
+      filter: blur(0.8px);
+    }
+
+    .sirup-hint-1 {
+      bottom: 55px;
+      right: 22px;
+    }
+
+    .sirup-hint-2 {
+      bottom: 40px;
+      left: 18px;
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(circle at 30% 30%, #ff7a7a, #a81818 85%);
+    }
+
+    /* Gelembung soda */
+    .bubble {
+      position: absolute;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.9);
+      pointer-events: none;
+    }
+
+    .bubble-1 { width: 8px; height: 8px; bottom: 45px; left: 30px; }
+    .bubble-2 { width: 5px; height: 5px; bottom: 70px; left: 55px; }
+    .bubble-3 { width: 10px; height: 10px; bottom: 35px; right: 30px; }
+    .bubble-4 { width: 6px; height: 6px; bottom: 80px; right: 45px; }
+    .bubble-5 { width: 7px; height: 7px; bottom: 60px; left: 70px; }
+    .bubble-6 { width: 4px; height: 4px; bottom: 95px; right: 60px; }
+    .bubble-7 { width: 9px; height: 9px; bottom: 28px; left: 45px; }
+    .bubble-8 { width: 5px; height: 5px; bottom: 52px; right: 25px; }
+
+    /* Aksen bunga telang / rosella di dalam gelas */
+    .flower-accent {
+      position: absolute;
+      z-index: 4;
+      font-size: 1.6rem;
+      opacity: 0.6;
+      pointer-events: none;
+      filter: blur(0.3px);
+    }
+
+    .flower-1 { bottom: 70px; right: 15px; color: #d9b3ff; }
+    .flower-2 { bottom: 50px; left: 20px; color: #ffb3b3; }
+    .flower-3 { bottom: 85px; left: 40px; color: #c9a0ff; font-size: 1.3rem; }
+
+    /* ===== KONTEN TEKS ===== */
+    .card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #2f2418;
+      letter-spacing: -0.3px;
+    }
+
+    .card h3 i {
+      font-size: 1rem;
+      color: #b87c4b;
+    }
+
+    .flavor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.7rem 0 1.1rem;
+    }
+
+    .tag {
+      background: #f6f1e9;
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: #4b3a2b;
+      border: 1px solid #ddd0c0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tag i {
+      font-size: 0.6rem;
+    }
+
+    .price {
+      margin-top: auto;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #3b2e5a;
+      background: #fef7e6;
+      display: inline-block;
+      padding: 0.3rem 1.1rem;
+      border-radius: 40px;
+      align-self: flex-start;
+      border: 1.5px solid #e6d9c8;
+      box-shadow: 0 3px 0 #d4c2ae;
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1150px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .header h1 {
+        font-size: 2.6rem;
+      }
+      body {
+        padding: 1.8rem 0.8rem;
+      }
+      .glass-scene {
+        height: 200px;
+      }
+      .glass {
+        width: 115px;
+        height: 170px;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-note {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8a7b6b;
+      border-top: 1px solid #e7ddd0;
+      padding-top: 2rem;
+      letter-spacing: 0.4px;
+    }
+
+    .footer-note i {
+      color: #b87c4b;
+      margin: 0 3px;
+    }
+
+    .footer-note strong {
+      color: #3b2e5a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <h1>TEH PAH</h1>
+      <p><i class="fas fa-leaf"></i> seduhan bunga telang &amp; rosella · segar dalam gelas kaca <i class="fas fa-glass-water"></i></p>
+    </div>
+
+    <!-- GRID MENU -->
+    <div class="menu-grid">
+
+      <!-- ===== 1. BEST SELLER: TELANG ORIGINAL ===== -->
+      <div class="card">
+        <div class="best-seller-badge"><i class="fas fa-crown"></i> BEST SELLER</div>
+        <div class="glass-scene">
+          <!-- Gelas kaca -->
+          <div class="glass telang-original">
+            <div class="liquid"></div>
+            <!-- Hiasan dalam gelas -->
+            <div class="lemon-hint lemon-hint-1"></div>
+            <i class="fas fa-leaf flower-accent flower-1" style="color: #d9b3ff;"></i>
+          </div>
+          <!-- Hiasan luar gelas: sereh & lemon -->
+          <i class="fas fa-leaf sereh sereh-1"></i>
+          <i class="fas fa-lemon lemon-slice lemon-1"></i>
+          <i class="fas fa-leaf sereh sereh-2"></i>
+        </div>
+        <h3><i class="fas fa-star" style="color: #ffb347;"></i> Telang Original</h3>
+        <div class="flavor-tags">
+          <span class="tag"><i class="fas fa-jar"></i> madu</span>
+          <span class="tag"><i class="fas fa-seedling"></i> sereh</span>
+          <span class="tag"><i class="fas fa-lemon"></i> lemon</span>
+        </div>
+        <div class="price">Rp 22.000</div>
+      </div>
+
+      <!-- ===== 2. TEH REMPAH TELANG SPARKLING ===== -->
+      <div class="card">
+        <div class="glass-scene">
+          <div class="glass telang-sparkling">
+            <div class="liquid"></div>
+            <!-- Hint sirup merah coco pandan -->
+            <div class="sirup-hint sirup-hint-1"></div>
+            <!-- Gelembung soda -->
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <i class="fas fa-fan flower-accent flower-3" style="color: #c9a0ff;"></i>
+          </div>
+          <!-- Hiasan sereh -->
+          <i class="fas fa-leaf sereh sereh-3"></i>
+          <i class="fas fa-leaf sereh sereh-2"></i>
+        </div>
+        <h3><i class="fas fa-sparkles" style="color: #b87fd9;"></i> Teh Rempah Telang</h3>
+        <div class="flavor-tags">
+          <span class="tag"><i class="fas fa-fan"></i> telang</span>
+          <span class="tag"><i class="fas fa-seedling"></i> sereh</span>
+          <span class="tag"><i class="fas fa-wine-bottle"></i> soda</span>
+          <span class="tag"><i class="fas fa-syrup"></i> sirup coco pandan</span>
+        </div>
+        <div class="price">Rp 25.000</div>
+      </div>
+
+      <!-- ===== 3. ROSELLA ORIGINAL ===== -->
+      <div class="card">
+        <div class="glass-scene">
+          <div class="glass rosella-original">
+            <div class="liquid"></div>
+            <!-- Hint lemon -->
+            <div class="lemon-hint lemon-hint-2"></div>
+            <i class="fas fa-flower flower-accent flower-2" style="color: #ffb3b3;"></i>
+          </div>
+          <!-- Hiasan sereh & potongan lemon -->
+          <i class="fas fa-leaf sereh sereh-1"></i>
+          <i class="fas fa-lemon lemon-slice lemon-2"></i>
+          <i class="fas fa-leaf sereh sereh-3"></i>
+          <i class="fas fa-lemon lemon-slice lemon-3"></i>
+        </div>
+        <h3><i class="fas fa-heart" style="color: #c44a4a;"></i> Rosella Original</h3>
+        <div class="flavor-tags">
+          <span class="tag"><i class="fas fa-flower"></i> rosella</span>
+          <span class="tag"><i class="fas fa-jar"></i> madu</span>
+          <span class="tag"><i class="fas fa-seedling"></i> sereh</span>
+          <span class="tag"><i class="fas fa-lemon"></i> lemon</span>
+        </div>
+        <div class="price">Rp 22.000</div>
+      </div>
+
+      <!-- ===== 4. ROSELLA SPARKLING ===== -->
+      <div class="card">
+        <div class="glass-scene">
+          <div class="glass rosella-sparkling">
+            <div class="liquid"></div>
+            <!-- Hint sirup merah + soda -->
+            <div class="sirup-hint sirup-hint-2"></div>
+            <!-- Gelembung soda -->
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+            <div class="bubble bubble-7"></div>
+            <div class="bubble bubble-8"></div>
+            <i class="fas fa-flower flower-accent flower-2" style="color: #ffb3b3;"></i>
+          </div>
+          <!-- Hiasan sereh -->
+          <i class="fas fa-leaf sereh sereh-1"></i>
+          <i class="fas fa-leaf sereh sereh-3"></i>
+        </div>
+        <h3><i class="fas fa-bolt" style="color: #b33a3a;"></i> Rosella Sparkling</h3>
+        <div class="flavor-tags">
+          <span class="tag"><i class="fas fa-seedling"></i> sereh</span>
+          <span class="tag"><i class="fas fa-wine-bottle"></i> soda</span>
+          <span class="tag"><i class="fas fa-syrup"></i> sirup</span>
+        </div>
+        <div class="price">Rp 24.000</div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-note">
+      <i class="fas fa-mug-hot"></i> TEH PAH — setiap gelas kaca menyegarkan <i class="fas fa-leaf"></i><br>
+      <strong>Best seller:</strong> Telang Original madu sereh lemon
+    </div>
+  </div>
+</body>
+</html>
